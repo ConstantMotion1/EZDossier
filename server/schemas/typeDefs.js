@@ -6,6 +6,13 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
+    portfolios: [Portfolio]!
+  }
+
+  type Portfolio {
+    _id: ID
+    portfolioUser: String
+    createdAt: String
   }
 
   type Auth {
@@ -16,11 +23,15 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user(username: String!): User
+    portfolios(username: String): [Portfolio]
+    portfolio(portfolioId: ID!): Portfolio
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
+    addPortfolio(portfolioUser: String!): Portfolio
+    removePortfolio(portfolioId: ID!): Portfolio
 }
 `;
 

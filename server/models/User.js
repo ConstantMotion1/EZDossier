@@ -19,6 +19,12 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
+  portfolios: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Portfolio',
+    },
+  ],
 });
 
 userSchema.pre('save', async function (next) {
