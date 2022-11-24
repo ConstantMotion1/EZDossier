@@ -1,42 +1,37 @@
 import './App.css';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import Register from './pages/register';
+import { setContext } from '@apollo/client/link/context';
 
-import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
-import Login from './components/Login/Login';
-import Register from './components/Register/Register';
-import {useSelector} from 'react-redux';
-import Home from './components/Home/Home';
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
+
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
 
 const client = new ApolloClient({
-  uri: '/graphql',
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
-})
+});
+
+
 
 function App() {
-  const state = useSelector(state => state.UserReducer);
   return (
  <ApolloProvider client={client}>
-    <div className="App">
-      <header className="App-header">
-
-      <Router>
-      
-        <Switch>
-            <Route path="/" exact>
-            {state.user ? <Home/> : <Login/> }
-            </Route>
-            <Route path="/Register">
-                <Register/>
-               
-            </Route>
-        </Switch>
-      </Router>
-
-      </header>
-    </div>
+    <div>helloWorld</div>
      </ApolloProvider>
-
   );
-}
+};
 
 export default App;

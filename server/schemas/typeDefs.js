@@ -12,7 +12,7 @@ const typeDefs = gql`
   type Portfolio {
     _id: ID
     portfolioUser: String
-    createdAt: Date
+    createdAt: String
     informations: [Information]!
   }
 
