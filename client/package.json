@@ -2,6 +2,7 @@
   "name": "ezdossier",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^11.1.0",
@@ -9,7 +10,9 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "@apollo/client": "^3.5.8",
+    "graphql": "^15.4.0"
   },
   "scripts": {
     "start": "react-scripts start",
