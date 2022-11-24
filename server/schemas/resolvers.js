@@ -11,6 +11,7 @@ const resolvers = {
         const params = username ? { username } : {};
         return Portfolio.find(params).sort({ createdAt: -1 });
       },
+
       portfolio: async (parent, { portfolioId }) => {
         return Portfolio.findOne({ _id: portfolioId });
       },
