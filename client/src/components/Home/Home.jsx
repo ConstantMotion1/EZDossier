@@ -1,5 +1,5 @@
 import React,{useState,useEffect,useRef} from 'react';
-import './Login.scss';
+import './Login.css';
 import {Link} from 'react-router-dom';
 import logo from '../../assets/logo.JPG';
 import welcomeimg from '../../assets/Welcomeback.JPG';
@@ -10,7 +10,7 @@ const state = useSelector(state => state.UserReducer);
 const dispatch = useDispatch();
 const initialValue = useRef(true);
 
-const history = useNavigate();
+let history=useNavigate();
 
 useEffect(() => {
 
