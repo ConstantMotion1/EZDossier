@@ -7,15 +7,15 @@ import App from './App';
 // import reportWebVitals from './reportWebVitals';
 
 
+let myStore = createStore(
+  allReducers,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
-// const root = ReactDOM.createRoot(document.getElementById('root'));
 ReactDOM.render(
+
   <React.StrictMode>
     <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-
-
-// reportWebVitals();
