@@ -1,8 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
 // import Test from "./pages/testpage";
 import Portfolio from "./pages/Portfolio";
-
 import { setContext } from "@apollo/client/link/context";
 
 import {
