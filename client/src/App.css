@@ -1,5 +1,14 @@
-#layout {
-  color:brown;
-  border: 2px solid brown
-  
+* {
+  background-color: antiquewhite;
+}
+
+.layout {
+  display: flex;
+  justify-content: space-evenly;
+  z-index: 50px;
 };
+
+img #layout {
+  border: 1px solid black;
+}
+
