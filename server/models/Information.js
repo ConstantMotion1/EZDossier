@@ -14,15 +14,19 @@ const informationSchema = new Schema({
             type: String,
             minlength: 1,
             maxlength: 280,
+            required: true,
         },
         resume: {
             type: String,
+            required: true,
         },
         contact: {
             type: String,
+            required: true,
         },
         image: {
             type: String,
+            required: true,
         },
         background: {
             type: String,

@@ -7,6 +7,8 @@ const typeDefs = gql`
     email: String
     password: String
     portfolios: [Portfolio]!
+    projects: [Project]!
+    informations: [Information]!
   }
 
   type Portfolio {
@@ -20,12 +22,21 @@ const typeDefs = gql`
     _id: ID
     title: String
     name: String
-    project: String
     description: String
     resume: String
-    navigation: String
+    contact: String
+    image: String
+    background: String
+    projects: [Project]!
   }
   
+  type Project {
+    _id: ID
+    title: String
+    github: String
+    website: String
+  }
+
   type Auth {
     token: ID!
     user: User

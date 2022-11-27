@@ -6,14 +6,28 @@ query user($username: String!) {
       _id
       username
       email
-      portfolios  {
+      portfolios {
         _id
         portfolioUser
         createdAt
+        informations {
+          _id
+          title
+          name
+          description
+          resume
+          contact
+          image
+          background
+          projects {
+            title
+            github
+            website
+          }
+        }
       }
     }
-  }
-`;
+  `;
 
 // work in progress
 export const QUERY_PORTFOLIO = gql`
@@ -22,6 +36,21 @@ export const QUERY_PORTFOLIO = gql`
       _id
       portfolioUser
       createdAt
+      informations {
+        _id
+        title
+        name
+        description
+        resume
+        contact
+        image
+        background
+        projects {
+          title
+          github
+          website
+        }
+      }
     }
   }
 `;
@@ -36,8 +65,22 @@ export const QUERY_ME = gql`
         _id
         portfolioUser
         createdAt
+        informations {
+          _id
+          title
+          name
+          description
+          resume
+          contact
+          image
+          background
+          projects {
+            title
+            github
+            website
+          }
+        }
       }
     }
-  }
-`;
+  `;
 
