@@ -1,7 +1,10 @@
 // import './App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Register from "./pages/register";
+// import Signup from "./pages/Signup";
 // import Test from "./pages/testpage";
+// import LoginTest from "./pages/LoginTest";
+
+import SignupTest from "./pages/SignupTest";
 import { setContext } from "@apollo/client/link/context";
 import {
   ApolloClient,
@@ -34,7 +37,8 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <Routes>
-          <Route path="/" element={<Register />} />
+          <Route path="/" element={<SignupTest />} />
+          
         </Routes>
       </Router>
     </ApolloProvider>

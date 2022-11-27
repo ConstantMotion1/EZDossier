@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from '../utils/mutations';
+import { USER_LOGIN } from '../utils/mutations';
+// import Login from './styling/Login.css'
 
 import Auth from '../utils/auth';
 
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
-  const [login, { error, data }] = useMutation(LOGIN_USER);
+  const [login, { error, data }] = useMutation(USER_LOGIN);
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -43,9 +44,9 @@ const Login = (props) => {
   return (
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Login</h4>
-          <div className="card-body">
+        <div className="main-login">
+          <h4 className="main-login-header bg-dark text-light p-2">Login</h4>
+          <div className="mainlogin-body">
             {data ? (
               <p>
                 Success! You may now head{' '}
