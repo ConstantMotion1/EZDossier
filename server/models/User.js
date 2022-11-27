@@ -25,6 +25,18 @@ const userSchema = new Schema({
       ref: 'Portfolio',
     },
   ],
+  projects: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Project',
+    },
+  ],
+  informations: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Information',
+    },
+  ],
 });
 
 userSchema.pre('save', async function (next) {

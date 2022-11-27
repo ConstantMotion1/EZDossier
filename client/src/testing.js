@@ -1,3 +1,4 @@
+
 import React from 'react';    
 import 'antd/dist/reset.css';
 import './App.css';
@@ -6,18 +7,14 @@ import Login from './pages/Login';
 // const { Header, Content, Footer } = Layout;
 
 
-
-export default function testing() {
+ function Testing() {
+  const counter = useSelector((state) => state.counter);
+  const dispatch = useDispatch();
   return (
     <Login />
       
+
   );
 };
 
-// const testing = () => (
-//     <div className="App">
-//       <Button type="primary">Button</Button>
-//     </div>
-//   );
-  
-//   export default testing;
+export default Testing;
