@@ -56,6 +56,11 @@ const resolvers = {
   
         return portfolio;
       },
+      updatePortfolio: async (parent, { _id, portfolioUser }) => {
+        const decrement = Math.abs(portfolioUser) * -1;
+  
+        return await Portfolio.findByIdAndUpdate(_id, { $inc: { portfolioUser: decrement } }, { new: true });
+      },
       removePortfolio: async (parent, { portfolioId }) => {
         return Portfolio.findOneAndDelete({ _id: portfolioId });
       },
