@@ -1,14 +1,7 @@
 * {
-  background-color: antiquewhite;
-}
-
-.layout {
-  display: flex;
-  justify-content: space-evenly;
-  z-index: 50px;
-};
-
-img #layout {
-  border: 1px solid black;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Outfit', sans-serif;
 }
 
