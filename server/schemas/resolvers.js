@@ -1,70 +1,86 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Portfolio } = require('../models');
+const { Portfolio } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
-    Query: {
-      user: async (parent, { username }) => {
-        return User.findOne({ username }).populate('portfolios');
-      },
-      portfolios: async (parent, { username }) => {
-        const params = username ? { username } : {};
-        return Portfolio.find(params).sort({ createdAt: -1 });
-      },
+  Query: {
+    portfolios: async () => {
+      return Portfolio.find();
+    },
 
-      portfolio: async (parent, { portfolioId }) => {
-        return Portfolio.findOne({ _id: portfolioId });
-      },
-      me: async (parent, args, context) => {
-        if (context.user) {
-          return User.findOne({ _id: context.user._id }).populate('portfolios');
-        }
-        throw new AuthenticationError('You need to be logged in!');
-      },
+    portfolio: async (parent, { portfolioId }) => {
+      return Portfolio.findOne({ _id: portfolioId });
     },
-  
-    Mutation: {
-      addUser: async (parent, { username, email, password }) => {
-        const user = await User.create({ username, email, password });
-        const token = signToken(user);
-        return { token, user };
-      },
-      login: async (parent, { email, password }) => {
-        const user = await User.findOne({ email });
-  
-        if (!user) {
-          throw new AuthenticationError('No user found with this email address');
-        }
-  
-        const correctPw = await user.isCorrectPassword(password);
-  
-        if (!correctPw) {
-          throw new AuthenticationError('Incorrect credentials');
-        }
-  
-        const token = signToken(user);
-  
-        return { token, user };
-      },
-      addPortfolio: async (parent, {  portfolioUser }) => {
-        const portfolio = await Portfolio.create({ portfolioUser });
-  
-        await User.findOneAndUpdate(
-          { username: portfolioUser },
-          { $addToSet: { portfolios: portfolio._id } }
+    // By adding context to our query, we can retrieve the logged in user without specifically searching for them
+    me: async (parent, args, context) => {
+      if (context.user) {
+        return Portfolio.findOne({ _id: context.user._id });
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+  },
+
+  Mutation: {
+    addPortfolio: async (parent, { name, email, password }) => {
+      const portfolio = await Portfolio.create({ name, email, password });
+      const token = signToken(portfolio);
+
+      return { token, profile };
+    },
+    login: async (parent, { email, password }) => {
+      const portfolio = await Portfolio.findOne({ email });
+
+      if (!portfolio) {
+        throw new AuthenticationError('No portfolio with this email found!');
+      }
+
+      const correctPw = await portfolio.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw new AuthenticationError('Incorrect password!');
+      }
+
+      const token = signToken(portfolio);
+      return { token, portfolio };
+    },
+
+    // Add a third argument to the resolver to access data in our `context`
+    addTrait: async (parent, { portfolioId, trait }, context) => {
+      // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
+      if (context.user) {
+        return Portfolio.findOneAndUpdate(
+          { _id: portfolioId },
+          {
+            $addToSet: { traits: trait },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
         );
-  
-        return portfolio;
-      },
-      updatePortfolio: async (parent, { _id, portfolioUser }) => {
-        const decrement = Math.abs(portfolioUser) * -1;
-  
-        return await Portfolio.findByIdAndUpdate(_id, { $inc: { portfolioUser: decrement } }, { new: true });
-      },
-      removePortfolio: async (parent, { portfolioId }) => {
-        return Portfolio.findOneAndDelete({ _id: portfolioId });
-      },
+      }
+      // If user attempts to execute this mutation and isn't logged in, throw an error
+      throw new AuthenticationError('You need to be logged in!');
+    },  
+    // Set up mutation so a logged in user can only remove their profile and no one else's
+    removePortfolio: async (parent, args, context) => {
+      if (context.user) {
+        return Portfolio.findOneAndDelete({ _id: context.user._id });
+      }
+      throw new AuthenticationError('You need to be logged in!');
     },
-  };
+    // Make it so a logged in user can only remove a trait from their own portfolio
+    removeTrait: async (parent, { skill }, context) => {
+      if (context.user) {
+        return Portfolio.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { traits: trait } },
+          { new: true }
+        );
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+  },
+};
 
 module.exports = resolvers;
