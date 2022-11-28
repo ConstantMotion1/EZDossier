@@ -1,10 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { setContext } from "@apollo/client/link/context";
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@apollo/client";
-import "./App.css";
+// import "./App.css";
 import Choose from "./pages/Choose";
 import FillContent from "./pages/Content";
 import FinalRender from "./pages/FinalPage";
+import Homepage from "./components/HeroSection/index";
 
 
 
@@ -31,8 +32,11 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
+      <Routes>
+          <Route path="/" element={<Homepage/>} />
+        </Routes>
         <Routes>
-          <Route path="/" element={<Choose/>} />
+          <Route path="/layout" element={<Choose/>} />
         </Routes>
         <Routes>
           <Route path="/fillcontent" element={<FillContent/>} />

@@ -2,6 +2,9 @@ import React from "react";
 import Carousel from 'react-bootstrap/Carousel';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import github from '../assets/linklogos/github.png';
+import website from '../assets/linklogos/website.png';
+import logo from '../assets/techblog.png';
 
 export default function FinalPage() {
   return (
@@ -15,80 +18,50 @@ export default function FinalPage() {
         </p>
       </div>
       <div>
-      <Carousel fade id="cssCarousel">
+      <Carousel fade >
       <Carousel.Item>
-        {/* <img
-          className="d-block w-100"
-          src={Project1}
+        <img
+          className="d-block w-90"
+          src={logo}
           alt="First slide"
-        /> */}
+        />
         <Carousel.Caption>
-          {/* <a href="https://iva416.github.io/MusicHub/">
-            <img id="link" src={websitelinkin}/>
+          <a href="#">
+            <img id="link" src={website}/>
           </a>
-          <a href="https://github.com/Iva416/MusicHub">
-            <img id="link" src={githublinkin}/>
-          </a> */}
+          <a href="#">
+            <img id="link" src={github}/>
+          </a>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        {/* <img
-          className="d-block w-100"
-          src={Project2}
+        <img
+          className="d-block w-90"
+          src={logo}
           alt="Second slide"
-        /> */}
+        />
         <Carousel.Caption>
-        {/* <a href="https://psychic-journey.herokuapp.com/">
-            <img id="link" src={websitelinkin}/>
+        <a href="#">
+            <img id="link" src={website}/>
           </a>
-          <a href="https://github.com/NathanKryz/psychic-journey">
-            <img id="link" src={githublinkin}/>
-          </a> */}
+          <a href="#">
+            <img id="link" src={github}/>
+          </a>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        {/* <img
-          className="d-block w-100"
-          src={TechBlog}
+        <img
+          className="d-block w-90"
+          src={logo}
           alt="Third slide"
-        /> */}
+        />
         <Carousel.Caption>
-        {/* <a href="https://blogapedia.herokuapp.com/">
-            <img id="link" src={websitelink}/>
+        <a href="#">
+            <img id="link" src={website}/>
           </a>
-          <a href="https://github.com/ConstantMotion1/Module14Challenge">
-            <img id="link" src={githublink}/>
-          </a> */}
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        {/* <img
-          className="d-block w-100"
-          src={PassGen}
-          alt="Forth slide"
-        /> */}
-        <Carousel.Caption>
-        {/* <a href="https://constantmotion1.github.io/Module3Challenge/">
-            <img id="link" src={websitelink}/>
+          <a href="#">
+            <img id="link" src={github}/>
           </a>
-          <a href="https://github.com/ConstantMotion1/Module3Challenge">
-            <img id="link" src={githublink}/>
-          </a> */}
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        {/* <img
-          className="d-block w-100"
-          src={WeatherApp}
-          alt="Fifth slide"
-        /> */}
-        <Carousel.Caption>
-        {/* <a href="https://constantmotion1.github.io/Module6Challenge/">
-            <img id="link" src={websitelink}/>
-          </a>
-          <a href="https://github.com/ConstantMotion1/Module6Challenge">
-            <img id="link" src={githublink}/>
-          </a> */}
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
