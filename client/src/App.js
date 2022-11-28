@@ -5,7 +5,9 @@ import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from "@ap
 import Choose from "./pages/Choose";
 import FillContent from "./pages/Content";
 import FinalRender from "./pages/FinalPage";
-import Homepage from "./components/HeroSection/index";
+import Home from './pages';
+import SignupPage from './pages/Signup';
+import SigninPage from './pages/Signin';
 
 
 
@@ -33,8 +35,14 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
       <Routes>
-          <Route path="/" element={<Homepage/>} />
+          <Route path="/" element={<Home/>} exact />
         </Routes>
+        <Routes>
+        <Route path='/signup' element={<SignupPage/>} exact />
+        </Routes>
+        <Routes>
+        <Route path='/signin' element={<SigninPage/>} exact />
+      </Routes>
         <Routes>
           <Route path="/layout" element={<Choose/>} />
         </Routes>
