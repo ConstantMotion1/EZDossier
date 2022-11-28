@@ -1,13 +1,19 @@
-import React from 'react'
-import Navbar from "./components/Navbar/Navbar"
+import React from 'react';
 import './App.css';
 
-const App2 = () => {
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Home from './pages';
+import SigninPage from './pages/signin';
+
+function App() {
   return (
-    <div className='App'>
-        <Navbar/>
-        </div>
-  )
+    <Router>
+      <Switch>
+        <Route path='/' component={Home} exact />
+        <Route path='/signin' component={SigninPage} exact />
+      </Switch>
+    </Router>
+  );
 }
 
-export default App2
+export default App;
