@@ -22,7 +22,7 @@ function Home() {
       <Sidebar isOpen={isOpen} toggle={toggle} />
       <Navbar toggle={toggle} />
       <HeroSection />
-      <InfoSection to='/layout' {...homeObjOne} />
+      <InfoSection  {...homeObjOne} />
       <InfoSection {...homeObjTwo} />
       <Services />
       <InfoSection {...homeObjThree} />

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from '../ButtonElements';
+import { useNavigate } from 'react-router-dom';
 import {
   InfoContainer,
   InfoWrapper,
@@ -32,6 +33,7 @@ const InfoSection = ({
   dark2
 }) => {
   console.log(primary);
+  const navigate = useNavigate()
   return (
     <>
       <InfoContainer lightBg={lightBg} id={id}>
@@ -44,7 +46,7 @@ const InfoSection = ({
                 <Subtitle darkText={darkText}>{description}</Subtitle>
                 <BtnWrap>
                   <Button
-                    to='home'
+                    onClick={()=>navigate('/layout')}
                     smooth={true}
                     duration={500}
                     spy={true}
