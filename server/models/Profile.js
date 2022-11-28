@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const portfolioSchema = new Schema({
+const profileSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -21,14 +21,14 @@ const portfolioSchema = new Schema({
   },
   traits: [
     {
-      type: String,
-      trim: true,
+      type: Schema.Types.ObjectId,
+      ref: 'Trait',
     },
   ],
 });
 
 // set up pre-save middleware to create password
-portfolioSchema.pre('save', async function(next) {
+profileSchema.pre('save', async function(next) {
   if (this.isNew || this.isModified('password')) {
     const saltRounds = 10;
     this.password = await bcrypt.hash(this.password, saltRounds);
@@ -38,10 +38,10 @@ portfolioSchema.pre('save', async function(next) {
 });
 
 // compare the incoming password with the hashed password
-portfolioSchema.methods.isCorrectPassword = async function(password) {
+profileSchema.methods.isCorrectPassword = async function(password) {
   return await bcrypt.compare(password, this.password);
 };
 
-const Portfolio = model('Portfolio', portfolioSchema);
+const Profile = model('Profile', profileSchema);
 
-module.exports = Portfolio;
+module.exports = Profile;

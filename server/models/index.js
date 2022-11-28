@@ -1,3 +1,4 @@
-const Portfolio = require('./Portfolio');
+const Profile = require('./Profile');
+const Trait = require('./Trait');
 
-module.exports = { Portfolio };
+module.exports = { Profile, Trait };

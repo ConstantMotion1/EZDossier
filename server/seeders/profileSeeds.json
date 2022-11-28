@@ -1,0 +1,27 @@
+[
+    {
+      "name": "Brian Kernighan",
+      "email": "bkernighan@techfriends.dev",
+      "password": "password01"
+    },
+    {
+      "name": "Max Kanat-Alexander",
+      "email": "mkanatalexander@techfriends.dev",
+      "password": "password02"
+    },
+    {
+      "name": "Amiko",
+      "email": "amiko@techfriends.dev",
+      "password": "password03"
+    },
+    {
+      "name": "Kent Beck",
+      "email": "kbeck@techfriends.dev",
+      "password": "password04"
+    },
+    {
+      "name": "Edward V. Berard",
+      "email": "evberard@techfriends.dev",
+      "password": "password05"
+    }
+  ]
