@@ -1,44 +1,46 @@
 const { Schema, model } = require('mongoose');
-const dateFormat = require('../utils/dateFormat');
+const bcrypt = require('bcrypt');
 
 const portfolioSchema = new Schema({
-  portfolioUser: {
+  name: {
     type: String,
     required: true,
+    unique: true,
     trim: true,
   },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-    get: (timestamp) => dateFormat(timestamp),
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    match: [/.+@.+\..+/, 'Must match an email address!'],
   },
-  information: [
-  {
-      title: {
-        type: String,
-        required: true,
-      },
-      name: {
-        type: String,
-        required: true,
-      },
-      project: {
-        type: String,
-      },
-      description: {
-        type: String,
-        minlength: 1,
-        maxlength: 280,
-      },
-      resume: {
-        type: String,
-      },
-      navigation: {
-        type: String,
-      },
+  password: {
+    type: String,
+    required: true,
+    minlength: 5,
+  },
+  traits: [
+    {
+      type: String,
+      trim: true,
     },
   ],
 });
+
+// set up pre-save middleware to create password
+portfolioSchema.pre('save', async function(next) {
+  if (this.isNew || this.isModified('password')) {
+    const saltRounds = 10;
+    this.password = await bcrypt.hash(this.password, saltRounds);
+  }
+
+  next();
+});
+
+// compare the incoming password with the hashed password
+portfolioSchema.methods.isCorrectPassword = async function(password) {
+  return await bcrypt.compare(password, this.password);
+};
 
 const Portfolio = model('Portfolio', portfolioSchema);
 
