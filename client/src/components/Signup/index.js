@@ -21,6 +21,10 @@ const SignUp = () => {
           <FormContent>
             <Form action='#'>
               <FormH1>Sign up</FormH1>
+              <FormLabel htmlFor='for'>First Name</FormLabel>
+              <FormInput type='fname' required />
+              <FormLabel htmlFor='for'>Last Name</FormLabel>
+              <FormInput type='lname' required />
               <FormLabel htmlFor='for'>Email</FormLabel>
               <FormInput type='email' required />
               <FormLabel htmlFor='for'>Password</FormLabel>
