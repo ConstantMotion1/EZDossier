@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import './ChooseElements.css';
 import layoutmin from "../assets/layouts/minimalist.png";
 import layoutela from "../assets/layouts/elaborate.png";
 

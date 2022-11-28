@@ -43,7 +43,7 @@ export const Icon = styled(Link)`
 `;
 
 export const FormContent = styled.div`
-  height: 100%;
+  height: 95%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -55,7 +55,7 @@ export const FormContent = styled.div`
 
 export const Form = styled.form`
   background: #010101;
-  max-width: 400px;
+  max-width: 600px;
   height: auto;
   width: 100%;
   z-index: 1;
@@ -71,7 +71,7 @@ export const Form = styled.form`
 `;
 
 export const FormH1 = styled.h1`
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   color: #fff;
   font-size: 20px;
   font-weight: 400;
@@ -79,12 +79,12 @@ export const FormH1 = styled.h1`
 `;
 
 export const FormLabel = styled.label`
-  margin-bottom: 8px;
-  font-size: 14px;
+  margin-bottom: 4px;
+  font-size: 12px;
   color: #fff;
 `;
 export const FormInput = styled.input`
-  padding: 16px 16px;
+  padding: 2px 10px;
   margin-bottom: 32px;
   border: none;
   border-radius: 4px;
