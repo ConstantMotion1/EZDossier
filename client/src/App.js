@@ -7,8 +7,6 @@ import FillContent from "./pages/Content";
 import FinalRender from "./pages/FinalPage";
 import Homepage from "./components/HeroSection/index";
 
-
-
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
