@@ -1,0 +1,52 @@
+[
+    {
+      "title": "King Codebra",
+      "fullName": "Brian Kernighan",
+      "description": "Everyone knows that debugging is twice as hard as writing a program in the first place. So if you're as clever as you can be when you write it, how will you ever debug it?",
+      "resume": "Brian Resume",
+      "contact": "url",
+      "image": "jpg file",
+      "background": "png file",
+      "projects": "github url"
+    },
+    {
+      "title": "Code Monkey",
+      "fullName": "Max Kanat-Alexander",
+      "description": "Some of the best programming is done on paper, really. Putting it into the computer is just a minor detail.",
+      "resume": "Max Resume",
+      "contact": "url",
+      "image": "jpg file",
+      "background": "png file",
+      "projects": "github url"
+    },
+    {
+      "title": "Lucky Duck",
+      "fullName": "Why The Lucky Stiff",
+      "description": "When you don't create things, you become defined by your tastes rather than ability. Your tastes only narrow & exclude people. So create.",
+      "resume": "Lucky Resume",
+      "contact": "url",
+      "image": "jpg file",
+      "background": "png file",
+      "projects": "github url"
+    },
+    {
+      "title": "Just Good with Great Habits",
+      "fullName": "Kent Beck",
+      "description": "I'm not a great programmer; I'm just a good programmer with great habits.",
+      "resume": "Kent Resume",
+      "contact": "url",
+      "image": "jpg file",
+      "background": "png file",
+      "projects": "github url"
+    },
+    {
+      "title": "Call me Moses",
+      "fullName": "Edward V. Berard",
+      "description": "Walking on water and developing software from a specification are easy if both are frozen.",
+      "resume": "Edward Resume",
+      "contact": "url",
+      "image": "jpg file",
+      "background": "png file",
+      "projects": "github url"
+    }
+]
