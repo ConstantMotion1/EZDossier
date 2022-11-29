@@ -51,9 +51,11 @@ const resolvers = {
         const trait = await Trait.create({ ...args });
         console.log(args)
         console.log(trait)
-        const test = await Profile.findByIdAndUpdate(context.user._id, { $push: { traits: trait } }, { new: true });
+        const test = await Profile.findByIdAndUpdate(context.user._id, { $push: { traits: trait } }, { 
+          new: true 
+        });
         console.log(test)
-        return test
+        return trait
       }
 
       throw new AuthenticationError('Not logged in');
