@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useMutation } from '@apollo/client';
+import Auth from '../utils/auth';
+import { ADD_PORTFOLIO } from '../utils/mutations';
 
 
 import {
@@ -16,6 +19,34 @@ import {
 } from './ContentElements';
 
 const Content = () => {
+  const [formState, setFormState] = useState({ title: '', fullName: '', description: '', resume: '', contact: '', image: '', background: '', projects: '' });
+  const [addTrait] = useMutation(ADD_PORTFOLIO);
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    const mutationResponse = await addTrait({
+      variables: {
+        title: formState.title,
+        fullName: formState.fullName,
+        description: formState.description,
+        resume: formState.resume,
+        contact: formState.contact,
+        image: formState.image,
+        background: formState.background,
+        projects: formState.projects,
+      },
+    });
+    const token = mutationResponse.data.addTrait.token;
+    Auth.login(token);
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
   const navigate = useNavigate() 
   return (
     <>
@@ -23,26 +54,25 @@ const Content = () => {
         <FormWrap>
           <Icon to='/'>EZ Dossier</Icon>
           <FormContent>
-            <Form action='#'>
+            <Form onSubmit={handleFormSubmit}>
               <FormH1> Please fill out Criteria</FormH1>
               <FormLabel htmlFor='for'>Title:</FormLabel>
-              <FormInput type='title' required />
-              <FormLabel htmlFor='for'>Name:</FormLabel>
-              <FormInput type='name' required />
+              <FormInput type='title' name='title' onChange={handleChange} required />
+              <FormLabel htmlFor='for'>fullName:</FormLabel>
+              <FormInput type='fullName' name='fullName' onChange={handleChange} required />
               <FormLabel htmlFor='for'>Description:</FormLabel>
-              <FormInput type='description' required />
+              <FormInput type='description' name='decsription' onChange={handleChange} required />
               <FormLabel htmlFor='for'>Resume:</FormLabel>
-              <FormInput type='resume' required />
+              <FormInput type='resume' name='resume' onChange={handleChange} required />
               <FormLabel htmlFor='for'>Contact:</FormLabel>
-              <FormInput type='contact' required />
+              <FormInput type='contact' name='contact' onChange={handleChange} required />
               <FormLabel htmlFor='for'>Images:</FormLabel>
-              <FormInput type='images' required />
+              <FormInput type='images' name='images' onChange={handleChange} required />
               <FormLabel htmlFor='for'>Background:</FormLabel>
-              <FormInput type='background' required />
+              <FormInput type='background' name='background' onChange={handleChange} required />
               <FormLabel htmlFor='for'>Projects:</FormLabel>
-              <FormInput type='projects' required />
+              <FormInput type='projects' name='projects' onChange={handleChange} required />
               <FormButton onClick={()=>navigate('/finalrender')} type='submit'>Continue</FormButton>
-              {/* <Formbutton onClick={()=>navigate('/finalrender')}>Make Portfolio!</Formbutton> */}
               <Text>Make Portfolio!</Text>
             </Form>
           </FormContent>

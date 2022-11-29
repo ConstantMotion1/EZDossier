@@ -16,7 +16,7 @@ import {
   Text
 } from './SigninElements';
 
-function SignIn(props) {
+function SignIn() {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [signIn, { error }] = useMutation(USER_LOGIN);
 
@@ -26,7 +26,7 @@ function SignIn(props) {
       const mutationResponse = await signIn({
         variables: { email: formState.email, password: formState.password },
       });
-      const token = mutationResponse.data.signin.token;
+      const token = mutationResponse.data.login.token;
       Auth.login(token);
     } catch (e) {
       console.log(e);
