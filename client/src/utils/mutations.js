@@ -1,42 +1,39 @@
 import { gql } from '@apollo/client';
 
-export const ADD_USER = gql`
-  mutation addProfile($username: String!, $email: String!, $password: String!) {
-    addUser(username: $username, email: $email, password: $password) {
+export const ADD_PROFILE = gql`
+mutation Mutation($firstName: String!, $lastName: String!, $email: String!, $password: String!) {
+  addProfile(firstName: $firstName, lastName: $lastName, email: $email, password: $password) {
+    token
+    profile {
       _id
-      username
-      email
-      password
     }
   }
+}
 `;
 
 export const USER_LOGIN = gql`
-  mutation userLogin($username: String!, $password: String!) {
-    login(username: $username, password: $password) {
+mutation Mutation($email: String!, $password: String!) {
+  login(email: $email, password: $password) {
+    token
+    profile {
       _id
-      username
-      password
     }
   }
+}
 `;
 
 export const ADD_PORTFOLIO = gql`
-  mutation addPortfolio($portfolioUser: String!) {
-    addPortfolio(portfolioUser: $portfolioUser) {
-      _id
-      portfolioUser
-      createdAt
-    }
+mutation AddTrait($title: String, $fullName: String, $description: String, $resume: String, $contact: String, $image: String, $background: String, $projects: String) {
+  addTrait(title: $title, fullName: $fullName, description: $description, resume: $resume, contact: $contact, image: $image, background: $background, projects: $projects) {
+    _id
   }
+}
 `;
 
 export const DELETE_PORTFOLIO = gql`
-  mutation deleteUser($portfolioID: ID!) {
-    removePortfolio(id: $id) {
-      _id
-      portfolioUser
-      createdAt
-    }
+mutation AddTrait($trait: String!) {
+  removeTrait(trait: $trait) {
+    _id
   }
+}
 `;
