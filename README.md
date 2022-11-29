@@ -1,9 +1,16 @@
   # EZDossier
   ## Description
-  EZ Dossier is a portfolio maker for users to create a beautiful portfolio and land their first job. [Click here](https://ezdossier.herokuapp.com/) to be taken to the shown landing page
+  EZ Dossier is a portfolio maker for users to create a beautiful portfolio and land their first job. [Click here](https://ezdossier.herokuapp.com/) to be taken to the shown landing page. 
   
   ![EZDossier](https://user-images.githubusercontent.com/112971337/204613692-e86153f6-295e-4b64-912a-aae8f839f8cb.jpg)
+  
+You can also access the following links to see our Goggle demo presentation and wireframe document.
 
+Demo:
+https://docs.google.com/presentation/d/1zatCu6U-ap493QfqCVfVLFUCgcKK1V89VcZM-7QYXPE/edit#slide=id.g19d079f6f97_2_83
+
+Wireframe:
+https://docs.google.com/document/d/191ywc2lJ9qvDFLj_PTCLuTIOO2PHRZr0mPeshQuJ_cY/edit
   ## License
   
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
