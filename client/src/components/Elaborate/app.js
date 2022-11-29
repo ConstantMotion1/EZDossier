@@ -13,10 +13,10 @@ links.forEach(link => {
 const toggleBtn = document.querySelector('.toggle-btn');
 const ul = document.querySelector('.nav-links-container');
 
-toggleBtn.addEventListener('click', () => {
-    toggleBtn.classList.toggle('active');
-    ul.classList.toggle('active');
-})
+// toggleBtn.addEventListener('click', () => {
+//     toggleBtn.classList.toggle('active');
+//     ul.classList.toggle('active');
+// })
 
 
 // project cards open and close functions

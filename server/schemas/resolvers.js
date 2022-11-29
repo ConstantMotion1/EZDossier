@@ -13,6 +13,7 @@ const resolvers = {
     },
     // By adding context to our query, we can retrieve the logged in user without specifically searching for them
     me: async (parent, args, context) => {
+      console.log(123)
       if (context.user) {
         return Profile.findOne({ _id: context.user._id }).populate('traits');
       }
