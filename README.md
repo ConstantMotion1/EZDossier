@@ -23,7 +23,7 @@ This application is distributed under the [MIT](https://opensource.org/licenses/
   N/A
   ## Contributors
   Contributors: 
-  Constan Fernando, Jordan Heath, Shayne Karunakaran
+  Constan Fernando, Jordan Heath, and Shayne Karunakaran
   ## Questions
   Find us on GitHub: <https://github.com/ConstantMotion1/EZDossier>
   
