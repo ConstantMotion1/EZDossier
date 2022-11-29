@@ -87,6 +87,7 @@ const Navbar = ({ toggle }) => {
               </NavItem>
             </NavMenu>
             <NavBtn>
+            <NavBtnLink to='/finalrender'>Your Portfolio</NavBtnLink>
               <NavBtnLink to='/signin'>Sign In</NavBtnLink>
               <NavBtnLink to='/signup'>Sign up</NavBtnLink>
             </NavBtn>
