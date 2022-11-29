@@ -1,6 +1,37 @@
-
+.body{
+    text-align: center;
+    padding-top: 50px 50px 0px ;
+    font-family:'Outfit'
+    
+}
 .layout {
     position: relative;
     margin-left: 550px;
+    display: flex;
+    margin: 5rem;
+    margin: 0 auto;
+    padding: 40px 150px;
+    border-radius: 4px;
+    transition: transform .5s;
+}
+
+
+.layout2 {
+    position: relative;
+    margin-left: 50px;
+    display: flex;
+    max-width: 100%;
+    height: auto;
+    transition: transform .5s;
+    
+
+}
+
+.body {
+    background: linear-gradient(
+    108deg,
+    rgba(116, 91, 255, 1) 0%,
+    rgba(21, 201, 255, 1) 100%)
     
 }
+
