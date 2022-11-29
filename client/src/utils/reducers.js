@@ -1,15 +1,15 @@
 import { useReducer } from "react";
 import {
-    UPDATE_PORTFOLIO,
+    ADD_PORTFOLIO,
     DELETE_PORTFOLIO,
 } from './actions';
 
 export const reducer = (state, action) => {
     switch (action.type) {
-        case UPDATE_PORTFOLIO:
+        case ADD_PORTFOLIO:
             return {
                 ...state,
-                portfolios: [...action.products],
+                portfolios: [...action.portfolios],
             };
         case DELETE_PORTFOLIO:
             return {
