@@ -1,5 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useMutation } from '@apollo/client';
+import { USER_LOGIN } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 import {
+
   Container,
   FormWrap,
   Icon,
@@ -12,21 +16,50 @@ import {
   Text
 } from './SigninElements';
 
-const SignIn = () => {
+function SignIn(props) {
+  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [signIn, { error }] = useMutation(USER_LOGIN);
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const mutationResponse = await signIn({
+        variables: { email: formState.email, password: formState.password },
+      });
+      const token = mutationResponse.data.signin.token;
+      Auth.login(token);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
   return (
     <>
       <Container>
         <FormWrap>
           <Icon to='/'>EZ Dossier</Icon>
           <FormContent>
-            <Form action='#'>
+            <Form onSubmit={handleFormSubmit}>
               <FormH1>Sign in to your account</FormH1>
               <FormLabel htmlFor='for'>Email</FormLabel>
-              <FormInput type='email' required />
+              <FormInput type='email' onChange={handleChange} required  />
               <FormLabel htmlFor='for'>Password</FormLabel>
-              <FormInput type='password' required />
-              <FormButton type='submit'>Continue</FormButton>
+              <FormInput type='password' onChange={handleChange} required />
+              <FormButton type='submit'>Submit</FormButton>
               <Text>Forgot password</Text>
+              {error ? (
+                <div>
+                  <p className="error-text">The provided credentials are incorrect</p>
+                </div>
+              ) : null}
             </Form>
           </FormContent>
         </FormWrap>
