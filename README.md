@@ -1,6 +1,9 @@
   # EZDossier
   ## Description
-  EZ Dossier is a portfolio maker for users to create a beautiful portfolio and land their first job.
+  EZ Dossier is a portfolio maker for users to create a beautiful portfolio and land their first job. [Click here](https://ezdossier.herokuapp.com/) to be taken to the shown landing page
+  
+  ![EZDossier](https://user-images.githubusercontent.com/112971337/204613692-e86153f6-295e-4b64-912a-aae8f839f8cb.jpg)
+
   ## License
   
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -13,15 +16,14 @@ This application is distributed under the [MIT](https://opensource.org/licenses/
   - [Testing](#Testing)
   - [Contributions](#Contributions)
   ## Usage
-  In order to use this repository you need to clone it then npm i all the npm packages that come with it. Once the repo is completely cloned and has all its dependencies it you will be able to run the localhost3000 with npm run develop. Once the website launches, you will be able to sign up and start creating fields to implement into your portfolio home screen.
+  In order to use this repository you need to clone it then ``npm i`` in the global folder so that all the npm packages come with it. Once the repo is completely cloned and has all its dependencies you will be able to run the localhost3000 with ``npm run develop``. Once the website launches, you will be able to sign up and start creating fields to implement into your portfolio page.
   ## Installation
-  Firsy you will create an account or login if you already have one. You willthen decide what type of portfolio you desire. We have the option of a minimalistic design and one which is more elaborate. Once you decide, you will then be prompted to add information and in order to populate the portfolio such as your name, description of yourself, skills, resume, images, and projects.
+  First you will create an account or login if you already have one. You will then decide what type of portfolio you desire. We have the option of a minimalistic design and one which is more elaborate. Once you decide, you will then be prompted to add information and in order to populate the portfolio such as your name, description of yourself, skills, resume, images, and projects.
   ## Tests
   N/A
   ## Contributors
   Contributors: 
   Constan Fernando, Jordan Heath, Shayne Karunakaran
   ## Questions
-  Find me on GitHub: <https://github.com/ConstantMotion1/EZDossier>
+  Find us on GitHub: <https://github.com/ConstantMotion1/EZDossier>
   
-Reach me by email: jordanheath945@gmail.com
