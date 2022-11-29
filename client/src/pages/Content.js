@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
+
 import {
   Container,
   FormWrap,
@@ -25,7 +26,7 @@ const Content = () => {
             <Form action='#'>
               <FormH1> Please fill out Criteria</FormH1>
               <FormLabel htmlFor='for'>Title:</FormLabel>
-              <FormInput type='tile' required />
+              <FormInput type='title' required />
               <FormLabel htmlFor='for'>Name:</FormLabel>
               <FormInput type='name' required />
               <FormLabel htmlFor='for'>Description:</FormLabel>

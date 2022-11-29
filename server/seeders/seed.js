@@ -12,7 +12,7 @@ db.once('open', async () => {
 
  for (let i = 0; i < traitSeeds.length; i++) {
       const { _id, fullName } = await Trait.create(traitSeeds[i]);
-      const profile = await Profile.findOneAndUpdate(
+       await Profile.findOneAndUpdate(
         { username: fullName },
         {
           $addToSet: {
