@@ -33,7 +33,7 @@ const Content = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      const { data } = await addTrait({
+      const information = await addTrait({
         variables: {
           title: formState.title,
           fullName: formState.fullName,
@@ -45,7 +45,7 @@ const Content = () => {
           projects: formState.projects,
         },
       });
-      const token = data.addTrait.token;
+      const token = information.data.addTrait.token;
       Auth.login(token);
       
     } catch (err) {

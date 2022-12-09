@@ -26,7 +26,7 @@ const SignIn = () => {
       const mutationResponse = await signIn({
         variables: { email: formState.email, password: formState.password },
       });
-      const token = mutationResponse.data.login.token;
+      const token = JSON.stringify(mutationResponse.data.login.token);
       Auth.login(token);
     } catch (e) {
       console.log(e);
@@ -54,6 +54,7 @@ const SignIn = () => {
               <FormLabel htmlFor='for'>Password</FormLabel>
               <FormInput type='password' name='password' onChange={handleChange} required />
               <FormButton type='submit'>Submit</FormButton>
+              <a href='/signup'>click here to signup</a>
               {error ? (
                 <div>
                   <p className="error-text">The provided credentials are incorrect</p>

@@ -30,8 +30,9 @@ const SignUp = () => {
         lastName: formState.lastName,
       },
     });
-    const token = mutationResponse.data.addProfile.token;
+    const token = JSON.stringify(mutationResponse.data.addProfile.token);
     Auth.login(token);
+    window.location.replace('/')
   };
 
   const handleChange = (event) => {
