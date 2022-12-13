@@ -1,7 +1,7 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { QUERY_USER } from '../utils/queries';
 import { useQuery } from "@apollo/client";
-// import "../components/MinimalRender/style.css";
+ import "../components/MinimalRender/style.css";
 // import "../components/MinimalRender/script/script"
 
 
@@ -9,11 +9,16 @@ import { useQuery } from "@apollo/client";
 
 
 export default function FinalPage() {
-  const { loading, data, error, refetch } = useQuery(QUERY_USER);
-  refetch();
-  console.log(data)
-  const postData = data?.trait || {};
-  console.log(postData)
+    const { loading, data } = useQuery(QUERY_USER);
+    console.log("here");
+    useEffect(() => {
+      console.log(loading);
+      if (data) {
+        console.log(data);
+      }
+    }, [data, loading]);
+  
+    const postData = data?.me || {};
   return (
     <>
      <nav className="navbar navbar-expand-lg fixed-top navbar-dark navbarScroll">
@@ -49,7 +54,7 @@ export default function FinalPage() {
         <div className="container-fluid">
             <div className="row">
             <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 hero-text">
-                <h2 className="hero_title">Hi, my name is {postData.traits.fullName}</h2>
+                {/* <h2 className="hero_title">Hi, my name is {postData.traits.fullName}</h2> */}
                 <p className="hero_desc">I am a professional freelancer in New York City</p>
             </div>
             </div>
